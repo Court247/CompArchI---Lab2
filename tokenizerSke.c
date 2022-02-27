@@ -164,7 +164,7 @@ void print_all_tokens(char** tokens)
       i++;
    }
 }
-int main(){
+/*int main(){
 
    int MAX_LIMIT = 1000;
    char ch[MAX_LIMIT];
@@ -179,5 +179,5 @@ int main(){
    print_all_tokens(tokenize(ch, b[0]));
 
    
-}
+}*/
 

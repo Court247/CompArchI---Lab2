@@ -24,15 +24,18 @@ void init_regs(){
 }
 
 
-
 /**
  * Fill out this function and use it to read interpret user input to execute RV64 instructions.
  * You may expect that a single, properly formatted RISC-V instruction string will be passed
  * as a parameter to this function.
  */
 bool interpret(char* instr){
-	char ch[1000] = instr;
-	tokenize(instr," ");
+	char** token = tokenize(instr,' ');
+	if(token[0] == "LW"){	
+	}else if(token[0] = "SW"){
+	}else if (token[0] = "ADD"){
+	}else if (token[0] = "ADDI"){
+	}
 	return true;
 }
 
