@@ -31,10 +31,25 @@ void init_regs(){
  */
 bool interpret(char* instr){
 	char** token = tokenize(instr,' ');
-	if(token[0] == "LW"){	
-	}else if(token[0] = "SW"){
-	}else if (token[0] = "ADD"){
-	}else if (token[0] = "ADDI"){
+	int i = 0;
+	int dest;
+	int src1;
+	int src2;
+	while( i < sizeof(token)/sizeof(token[0])){
+		if(token[0] == "ADD"){
+			dest = atoi(token[1]);
+			src1 = atoi(token[2]);
+			src2 = atoi(token[3]);
+			reg[dest] = reg[src1] + reg[src2];
+			
+		}else if(token[0] = "ADDI"){
+			dest = atoi(token[1]);
+			src1 = atoi(token[2]);
+			reg[dest] = reg[src1] + token[3];
+
+		}else if (token[0] = "LW"){
+		}else if (token[0] = "SW"){
+		}
 	}
 	return true;
 }
