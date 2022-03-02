@@ -37,19 +37,56 @@ bool interpret(char* instr){
 	int src2;
 	while( i < sizeof(token)/sizeof(token[0])){
 		if(token[0] == "ADD"){
+
 			dest = atoi(token[1]);
 			src1 = atoi(token[2]);
 			src2 = atoi(token[3]);
 			reg[dest] = reg[src1] + reg[src2];
 			
-		}else if(token[0] = "ADDI"){
+		}else if(token[0] == "ADDI"){
+
 			dest = atoi(token[1]);
 			src1 = atoi(token[2]);
 			reg[dest] = reg[src1] + token[3];
 
-		}else if (token[0] = "LW"){
-		}else if (token[0] = "SW"){
+		}else if (token[0] == "LW"){
+
+			char** tok = tokenize(token[2], "(");
+			int imm = tok[0];
+			src1 = atoi(tok[1]) + imm;
+			dest = atoi(token[1]);
+			reg[dest] = reg[src1];
+
+		}else if (token[0] == "SW"){
+
+			char** tok = tokenize(token[2], "(");
+			int imm = tok[0];
+			src1 = atoi(token[1]);
+			dest = atoi(tok[1]) + imm;
+			reg[dest] = reg[src1];
+
+		}else if (token[0] == "AND"){
+
+			src1 = atoi(token[2]);
+			src2 = atoi(token[3]);
+			dest = atoi(token[1]);
+			reg[dest] = reg[src1] && reg[src2];
+
+		}else if(token[0] == "OR"){
+
+			src1 = atoi(token[2]);
+			src2 = atoi(token[3]);
+			dest = atoi(token[1]);
+			reg[dest] = reg[src1] || reg[src2];
+		
+		}else if(token[0] == "XOR"){
+			
+			src1 = atoi(token[2]);
+			src2 = atoi(token[3]);
+			dest = atoi(token[1]);
+			reg[dest] = !(reg[src1] || reg[src2]);
 		}
+
 	}
 	return true;
 }
