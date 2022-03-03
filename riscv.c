@@ -85,7 +85,10 @@ bool interpret(char* instr){
 			src2 = atoi(token[3]);
 			dest = atoi(token[1]);
 			reg[dest] = !(reg[src1] || reg[src2]);
+		}else{
+			printf("Invalid");
 		}
+		i++;
 
 	}
 	return true;
